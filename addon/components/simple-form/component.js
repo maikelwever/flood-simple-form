@@ -16,7 +16,7 @@ const SimpleFormComponent = Component.extend({
   layout,
 
   tagName: 'form',
-  classNames: ['SimpleForm'],
+  classNames: ['form', 'form-horizontal'],
 
   disabled: false,
 

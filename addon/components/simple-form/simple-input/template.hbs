@@ -1,29 +1,34 @@
 {{#if hasInlineLabel}}
-  <div class="SimpleForm-field SimpleForm-field__inline {{if isInvalid "SimpleForm-field__invalid"}}">
-    <label for={{inputElementId}}>
-      {{#unless isInputFirst}}{{label}}{{/unless}}
-      {{component inputComponentName
-        id=inputElementId
-        name=name
-        isValid=isValid
-        inputAttributes=inputAttributes
-        value=value
-        focus-in=(action "inputGainedFocus")
-        focus-out=(action "inputLostFocus")
-        on-change=(action "inputValueChanged")
-      }}
-      {{#if isInputFirst}}{{label}}{{/if}}
-    </label>
-    {{#if hasErrors}}
-      <p class="SimpleForm-errors">{{errorMessages}}</p>
-    {{/if}}
-    {{#if hasHint}}
-      <p class="SimpleForm-hint">{{hintMessage}}</p>
-    {{/if}}
+  <div class="col-sm-offset-2 col-sm-10">
+    <div class={{if (eq type 'boolean') 'checkbox'}}>
+      <label class="control-label" for={{inputElementId}}>
+        {{#unless isInputFirst}}{{label}}{{/unless}}
+        {{component inputComponentName
+          id=inputElementId
+          name=name
+          isValid=isValid
+          inputAttributes=inputAttributes
+          value=value
+          focus-in=(action "inputGainedFocus")
+          focus-out=(action "inputLostFocus")
+          on-change=(action "inputValueChanged")
+        }}
+        {{#if isInputFirst}}{{label}}{{/if}}
+      </label>
+      <span class="form-control-feedback"></span>
+      <span class="help-block col-sm-offset-2 col-sm-10">
+        {{#if hasErrors}}
+          <p class="SimpleForm-errors">{{errorMessages}}</p>
+        {{/if}}
+        {{#if hasHint}}
+          <p class="SimpleForm-hint">{{hintMessage}}</p>
+        {{/if}}
+      </span>
+    </div>
   </div>
 {{else}}
-  {{#if label}}<label for={{inputElementId}}>{{label}}</label>{{/if}}
-  <div class="SimpleForm-field {{if isInvalid "SimpleForm-field__invalid"}}">
+  {{#if label}}<label class="col-xs-2 control-label" for={{inputElementId}}>{{label}}</label>{{/if}}
+  <div class="col-xs-10">
     {{#if hasBlock}}
       {{#component inputComponentName
         id=inputElementId
@@ -50,11 +55,14 @@
         on-change=(action "inputValueChanged")
       }}
     {{/if}}
+  </div>
+  <span class="form-control-feedback"></span>
+  <span class="help-block col-sm-offset-2 col-sm-10">
     {{#if hasErrors}}
       <p class="SimpleForm-errors">{{errorMessages}}</p>
     {{/if}}
     {{#if hasHint}}
       <p class="SimpleForm-hint">{{hintMessage}}</p>
     {{/if}}
-  </div>
+  </span>
 {{/if}}

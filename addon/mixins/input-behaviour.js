@@ -5,6 +5,7 @@ export default Ember.Mixin.create({
 
   isValid: true,
 
+  classNames: ['form-control'],
   classNameBindings: ['isValid:valid:invalid'],
 
   didReceiveAttrs({ newAttrs }) {

@@ -21,8 +21,8 @@ const InputComponent = Component.extend({
   layout,
 
   tagName: 'div',
-  classNames: ['SimpleForm-input'],
-  classNameBindings: ['_inputClassName'],
+  classNames: ['form-group'],
+  classNameBindings: ['_inputClassName', 'hasErrors:has-error', 'hasErrors:has-feedback'],
 
   changeset: {},
 

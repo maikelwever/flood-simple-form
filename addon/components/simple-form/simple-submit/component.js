@@ -8,6 +8,7 @@ const SubmitComponent = Component.extend({
   label: 'Submit',
 
   disabled: false,
+  classNames: ['btn', 'btn-primary'],
 
   /**
    * The <form> ID
