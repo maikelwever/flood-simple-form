@@ -14,6 +14,11 @@ const SectionComponent = Component.extend({
 
   form: null,
 
+  init() {
+    this._super();
+    this.changeset.validate();
+  },
+
   isEnabledDidChange: observer('isEnabled', function () {
     let isEnabled = get(this, 'isEnabled');
     if (!isEnabled) {

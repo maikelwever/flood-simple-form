@@ -27,6 +27,7 @@ const SimpleFormComponent = Component.extend({
   init() {
     this[SECTIONS] = new Map();
     this._super();
+    this.changeset.validate();
   },
 
   /**
